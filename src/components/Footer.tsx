@@ -16,7 +16,7 @@ const Footer = () => {
                   className="w-8 h-8 rounded-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling!.style.display = 'block';
+                    (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
                   }}
                 />
                 <div className="w-8 h-8 bg-white rounded-full hidden items-center justify-center">
