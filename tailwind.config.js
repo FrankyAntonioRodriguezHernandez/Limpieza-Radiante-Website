@@ -1,12 +1,15 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      animation: {
-        'pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      }
+      colors: {
+        primary: '#4f6df5',
+        secondary: '#3aa9f5',
+      },
     },
   },
   plugins: [],
