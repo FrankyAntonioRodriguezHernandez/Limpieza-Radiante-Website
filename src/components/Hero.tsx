@@ -11,7 +11,7 @@ const Hero = () => {
       </div>
 
       {/* Curved Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-white" style={{
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white" style={{
         clipPath: 'ellipse(100% 100% at 50% 100%)'
       }}></div>
 
@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
 
           {/* Hero Image with Organic Shape */}
-          <div className="relative pt-16">
+          <div className="relative pt-10">
             <div className="relative max-w-2xl mx-auto">
               <div className="organic-shape bg-white p-8 animate-gentle-float">
                 <img
@@ -48,11 +48,6 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="pt-8">
-            <p className="text-teal-100 text-lg max-w-3xl mx-auto">
-              Watch as we meticulously clean every corner of your home, providing a refreshing atmosphere for you and your family.
-            </p>
-          </div>
         </div>
       </div>
     </section>
