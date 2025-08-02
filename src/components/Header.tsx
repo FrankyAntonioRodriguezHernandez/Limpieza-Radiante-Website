@@ -12,7 +12,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
               <img 
-                src="/public/logo.jpeg" 
+                src="/logo.jpeg" 
                 alt="Limpieza Radiante" 
                 className="w-8 h-8 rounded-full object-cover"
                 onError={(e) => {
