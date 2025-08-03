@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { ShineParticlesButton } from './ShineParticlesButton';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -142,13 +143,13 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button
+              <ShineParticlesButton
                 type="submit"
                 className="w-full bg-teal-500 hover:bg-teal-600 text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
-                <span>Send Message</span>
+                <span>Send Message</span> 
                 <Send className="h-5 w-5" />
-              </button>
+              </ShineParticlesButton>
             </form>
 
             {/* Contact Info */}

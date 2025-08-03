@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { ShineParticlesButton } from './ShineParticlesButton';
 
 const About = () => {
   const description = 'we offer professional house cleaning services that are tailored to meet your unique needs. Our team of experienced cleaners uses eco-friendly products and the latest cleaning techniques to ensure your home is spotless and healthy.';
@@ -30,10 +31,10 @@ const About = () => {
               </div>
             </div>
 
-            <button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
+            <ShineParticlesButton className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
               <span>Learn more</span>
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </ShineParticlesButton>
           </div>
 
           <div className="relative">
