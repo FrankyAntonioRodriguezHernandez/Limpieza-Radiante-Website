@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 overflow-hidden">
+    <section id="home" className="relative min-h-0 md:min-h-[85vh] bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 overflow-hidden">
       {/* Organic Background Shapes */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-300 opacity-20 rounded-full transform translate-x-32 -translate-y-32 animate-gentle-float"></div>
@@ -15,7 +15,7 @@ const Hero = () => {
         clipPath: 'ellipse(100% 100% at 50% 100%)'
       }}></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 -my-6 md:-my-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:pt-24 md:pb-28 md:-my-16">
         <div className="grid md:grid-cols-2 items-center text-center space-y-8 ">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
