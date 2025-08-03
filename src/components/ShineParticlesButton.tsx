@@ -25,13 +25,13 @@ export const ShineParticlesButton: React.FC<ShineParticlesButtonProps> = ({ chil
     for (let i = 0; i < 12; i++) {
       const particle = document.createElement("span");
       particle.className =
-        "pointer-events-none z-50 absolute rounded-full bg-yellow-200 shadow-yellow-100 shadow-lg";
+        "pointer-events-none z-50 absolute rounded-full bg-sky-300 shadow-sky-100 shadow-lg";
       particle.style.width = particle.style.height = `${random(8, 16)}px`;
       particle.style.left = `${btnLeft + rect.width / 2}px`;
       particle.style.top = `${btnTop + rect.height / 2}px`;
-      particle.style.opacity = "0.7";
+      particle.style.opacity = "2";
       particle.style.transition =
-        "transform 0.7s cubic-bezier(.57,1.49,.53,1.02), opacity 0.7s";
+        "transform 0.7s cubic-bezier(.57,1.49,.53,1.02), opacity 2s";
 
       // Dirección y distancia aleatoria
       const angle = random(0, 2 * Math.PI);
