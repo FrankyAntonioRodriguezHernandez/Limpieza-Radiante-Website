@@ -4,8 +4,8 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-white relative overflow-hidden">
       {/* Curved Top Section */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-teal-500" style={{
-        clipPath: 'ellipse(100% 100% at 50% 0%)'
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-teal-300 bg-teal-500" style={{
+        clipPath: 'ellipse(55% 100% at 50% 0%)'
       }}></div>
 
       {/* Background Decorative Circles */}
