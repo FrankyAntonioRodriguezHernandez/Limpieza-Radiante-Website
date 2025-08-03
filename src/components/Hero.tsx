@@ -11,11 +11,11 @@ const Hero = () => {
       </div>
 
       {/* Curved Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white" style={{
-        clipPath: 'ellipse(100% 100% at 50% 100%)'
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gray-50" style={{
+        clipPath: 'ellipse(55% 100% at 50% 100%)'
       }}></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:pt-24 md:pb-28 md:-my-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20 md:pt-24 md:pb-28 md:-my-16">
         <div className="grid md:grid-cols-2 items-center text-center space-y-8 ">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
