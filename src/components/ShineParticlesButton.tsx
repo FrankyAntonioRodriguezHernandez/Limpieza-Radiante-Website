@@ -53,7 +53,7 @@ export const ShineParticlesButton: React.FC<ShineParticlesButtonProps> = ({ chil
 
   // El contenedor debe ser relative para posicionar partículas
   return (
-    <div className="relative w-full">
+    <div className="relative">
       <button
         {...props}
         ref={btnRef}

@@ -100,10 +100,14 @@ const Services = () => {
               <p className="text-lg text-gray-600 line-clamp-3 leading-relaxed">
                 {service.description}
               </p>
-              <button className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300">
-                <ShineParticlesButton>{service.buttonText}</ShineParticlesButton>
-                <ShineParticlesButton> <ArrowRight className="h-4 w-4 " /> </ShineParticlesButton> 
-              </button>
+              <div className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300">
+                <ShineParticlesButton className="inline-flex items-center">
+                  {service.buttonText}
+                </ShineParticlesButton>
+                <ShineParticlesButton className="inline-flex items-center">
+                  <ArrowRight className="h-4 w-4 " />
+                </ShineParticlesButton> 
+              </div>
             </div>
 
             {/* Animated Organic Blob Image */}
