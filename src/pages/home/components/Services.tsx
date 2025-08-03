@@ -1,8 +1,8 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import AnimatedBlobImage from "./AnimatedBlobImage"; 
-import { ShineParticlesButton } from "./ShineParticlesButton";
 import { Link } from "react-router-dom";
+import { ShineParticlesButton } from "../../../components/ShineParticlesButton";
+import AnimatedBlobImage from "../../../components/AnimatedBlobImage";
 
 const blobPaths: [string, string][] = [
   [

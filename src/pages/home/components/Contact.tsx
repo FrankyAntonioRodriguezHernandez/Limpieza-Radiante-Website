@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
-import { ShineParticlesButton } from './ShineParticlesButton';
+import { ShineParticlesButton } from '../../../components/ShineParticlesButton';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

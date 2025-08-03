@@ -1,21 +1,14 @@
-import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import AllServices from './pages/services/AllServices';
+import Home from './pages/home/Home';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <Services />
-      <About />
-      <Contact />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<AllServices />} />
+    </Routes>
   );
 }
 

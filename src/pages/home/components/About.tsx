@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { ShineParticlesButton } from './ShineParticlesButton';
+import { ShineParticlesButton } from '../../../components/ShineParticlesButton';
 
 const About = () => {
   const description = 'we offer professional house cleaning services that are tailored to meet your unique needs. Our team of experienced cleaners uses eco-friendly products and the latest cleaning techniques to ensure your home is spotless and healthy.';

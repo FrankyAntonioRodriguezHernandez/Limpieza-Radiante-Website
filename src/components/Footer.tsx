@@ -1,8 +1,12 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
+import { Link } from 'react-router-dom';
+import { useScrollToHash } from './useScrollToHash';
 
 const Footer = () => {
+  useScrollToHash();
+
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,9 +15,9 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
-                <img 
-                  src="/public/logo.jpeg" 
-                  alt="Limpieza Radiante" 
+                <img
+                  src="/public/logo.jpeg"
+                  alt="Limpieza Radiante"
                   className="w-8 h-8 rounded-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -46,10 +50,49 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
-              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors duration-300">About us</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors duration-300">Contact us</a></li>
+              <Link to="/#home" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#home") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("home");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Home
+              </Link>
+
+              <li><Link to="/services#AllServices" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("AllServices");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Services
+              </Link></li>
+
+              <li><Link to="/#about" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#about") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("about");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                About us
+              </Link></li>
+
+              <li><Link to="/#contact" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#contact") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Contact us
+              </Link></li>
             </ul>
           </div>
 
@@ -57,10 +100,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Residential Cleaning</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Commercial Cleaning</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Deep Cleaning</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+              <li><Link to="/services#cleaning1" className="text-gray-400 hover:text-white transition-colors duration-300">Residential Cleaning</Link></li>
+              <li><Link to="/services#cleaning2" className="text-gray-400 hover:text-white transition-colors duration-300">Commercial Cleaning</Link></li>
+              <li><Link to="/services#cleaning3" className="text-gray-400 hover:text-white transition-colors duration-300">Deep Cleaning</Link></li>
+              <li><Link to="/services#cleaning4" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</Link></li>
             </ul>
           </div>
 
