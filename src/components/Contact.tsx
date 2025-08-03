@@ -36,7 +36,7 @@ const Contact = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Discover a cleaner home
+            Discover  <span className="text-yellow-300">a cleaner home</span>
           </h2>
           <p className="text-xl text-teal-100 max-w-3xl mx-auto leading-relaxed">
             Immerse yourself in a pristine living space with our exclusive cleaning packages tailored just for you.
