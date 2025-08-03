@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import AnimatedBlobImage from "./AnimatedBlobImage"; 
 import { ShineParticlesButton } from "./ShineParticlesButton";
+import { Link } from "react-router-dom";
 
 const blobPaths: [string, string][] = [
   [
@@ -100,7 +101,8 @@ const Services = () => {
               <p className="text-lg text-gray-600 line-clamp-3 leading-relaxed">
                 {service.description}
               </p>
-              <div className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300">
+              
+              <div className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300" onClick={() => window.location.href = '/services'}>
                 <ShineParticlesButton className="inline-flex items-center">
                   {service.buttonText}
                 </ShineParticlesButton>

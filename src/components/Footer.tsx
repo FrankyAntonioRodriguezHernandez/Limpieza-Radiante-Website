@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { ShineParticlesButton } from './ShineParticlesButton';
 
 const Footer = () => {
   return (
@@ -66,9 +67,9 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Get in Touch</h3>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+            <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
               Get in touch
-            </button>
+            </ShineParticlesButton>
           </div>
         </div>
 
