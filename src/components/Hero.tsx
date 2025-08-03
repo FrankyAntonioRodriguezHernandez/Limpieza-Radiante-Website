@@ -15,8 +15,8 @@ const Hero = () => {
         clipPath: 'ellipse(100% 100% at 50% 100%)'
       }}></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
-        <div className="text-center space-y-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 -my-6 md:-my-16">
+        <div className="grid md:grid-cols-2 items-center text-center space-y-8 ">
           <div className="space-y-6">
             <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
               The Revolution
@@ -29,8 +29,8 @@ const Hero = () => {
           </div>
 
           {/* Hero Image with Organic Shape */}
-          <div className="relative pt-10">
-            <div className="relative max-w-2xl mx-auto">
+          <div className="relative -pt-14">
+            <div className="relative max-w-2xl mx-auto ">
               <div className="organic-shape bg-white p-8 animate-gentle-float">
                 <img
                   src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=800"
