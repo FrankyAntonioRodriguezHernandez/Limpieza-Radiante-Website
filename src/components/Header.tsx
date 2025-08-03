@@ -25,20 +25,20 @@ const Header = () => {
                 <span className="text-teal-500 font-bold text-sm">LR</span>
               </div>
             </div>
-            <span className="text-xl font-bold text-gray-800">Limpieza Radiante</span>
+            <span className="text-xl font-bold text-gray-950">Limpieza Radiante</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium">Home</a>
-            <a href="#services" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium">Services</a>
-            <a href="#about" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium">About us</a>
-            <a href="#contact" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium">Contact us</a>
+            <a href="#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium">Home</a>
+            <a href="#services" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium">Services</a>
+            <a href="#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium">About us</a>
+            <a href="#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium">Contact us</a>
           </nav>
 
           {/* Contact Info & CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-gray-600">
+            <div className="flex items-center space-x-2 text-stone-950">
               <Phone className="h-4 w-4" />
               <span className="text-sm">+1 555-555-5556</span>
           </div>
