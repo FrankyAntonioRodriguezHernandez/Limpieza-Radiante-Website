@@ -102,7 +102,7 @@ const Services = () => {
               </p>
               <button className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300">
                 <ShineParticlesButton>{service.buttonText}</ShineParticlesButton>
-                <ArrowRight className="h-4 w-4" />
+                <ShineParticlesButton> <ArrowRight className="h-4 w-4 " /> </ShineParticlesButton> 
               </button>
             </div>
 
@@ -131,10 +131,6 @@ const Services = () => {
           </div>
         ))}
       </div>
-
-      {/* Background Shapes */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-yellow-200 opacity-10 rounded-full transform translate-x-48 animate-gentle-float"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-teal-200 opacity-15 rounded-full transform -translate-x-40 animate-float"></div>
     </section>
   );
 };
