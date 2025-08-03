@@ -28,13 +28,6 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="pt-8">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
-              <span>Learn more about our services</span>
-              <ArrowRight className="h-5 w-5" />
-            </button>
-          </div>
-
           {/* Hero Image with Organic Shape */}
           <div className="relative pt-10">
             <div className="relative max-w-2xl mx-auto">
@@ -48,6 +41,7 @@ const Hero = () => {
             </div>
           </div>
 
+          
         </div>
       </div>
     </section>
