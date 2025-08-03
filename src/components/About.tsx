@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 
 const About = () => {
+  const description = 'we offer professional house cleaning services that are tailored to meet your unique needs. Our team of experienced cleaners uses eco-friendly products and the latest cleaning techniques to ensure your home is spotless and healthy.';
   return (
     <section id="about" className="py-20 bg-white relative overflow-hidden">
       {/* Curved Top Section */}
@@ -23,10 +24,10 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  At <span className="font-semibold text-teal-600">Company LimpiezaRadiante</span>, we offer professional house cleaning services that are tailored to meet your unique needs. Our team of experienced cleaners uses eco-friendly products and the latest cleaning techniques to ensure your home is spotless and healthy.
+                  At <span className="font-semibold text-teal-600">Company LimpiezaRadiante</span>, 
                 </p>
-                <p>
-                  We believe in putting our clients first and delivering exceptional service that exceeds their expectations.
+                <p className="line-clamp-3 leading-relaxed">
+                  {description}
                 </p>
               </div>
             </div>
