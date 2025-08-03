@@ -10,10 +10,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex  bg-white rounded-full items-center space-x-3">
-            <div className="w-12 h-12 flex items-center justify-center">
+          <div className="flex items-center space-x-3">
+            <div className="w-13 h-12 flex items-center justify-center">
               <img 
-                src="/logo.jpeg" 
+                src="/logo.png" 
                 alt="Limpieza Radiante" 
                 className="w-14 h-14 object-cover"
                 onError={(e) => {
