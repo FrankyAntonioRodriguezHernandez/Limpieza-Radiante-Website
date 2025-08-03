@@ -29,7 +29,7 @@ const Contact = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-green-300 opacity-10 rounded-full transform -translate-x-24 translate-y-24 animate-float"></div>
 
       {/* Curved Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-white" style={{
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-600 to-gray-900" style={{
         clipPath: 'ellipse(100% 100% at 50% 100%)'
       }}></div>
 
@@ -169,12 +169,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="text-center mt-16">
-          <p className="text-teal-100 text-lg max-w-3xl mx-auto">
-            Watch as we meticulously clean every corner of your home, providing a refreshing atmosphere for you and your family.
-          </p>
         </div>
       </div>
     </section>
