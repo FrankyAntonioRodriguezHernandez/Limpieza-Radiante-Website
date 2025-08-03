@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import AnimatedBlobImage from "./AnimatedBlobImage"; 
+import { ShineParticlesButton } from "./ShineParticlesButton";
 
 const blobPaths: [string, string][] = [
   [
@@ -100,7 +101,7 @@ const Services = () => {
                 {service.description}
               </p>
               <button className="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-700 font-semibold transition-colors duration-300">
-                <span>{service.buttonText}</span>
+                <ShineParticlesButton>{service.buttonText}</ShineParticlesButton>
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

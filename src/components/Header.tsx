@@ -41,10 +41,10 @@ const Header = () => {
             <div className="flex items-center space-x-2 text-gray-600">
               <Phone className="h-4 w-4" />
               <span className="text-sm">+1 555-555-5556</span>
-            </div>
+          </div>
             <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md">
-        ¡Get in touch!
-      </ShineParticlesButton>
+              ¡Get in touch!
+            </ShineParticlesButton>
           </div>
 
           {/* Mobile menu button */}
