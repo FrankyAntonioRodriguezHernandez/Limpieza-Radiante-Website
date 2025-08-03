@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 -my-6 md:-my-16">
         <div className="grid md:grid-cols-2 items-center text-center space-y-8 ">
           <div className="space-y-6">
-            <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
               The Revolution
               <br />
               <span className="text-yellow-300">in Home Cleaning</span>
