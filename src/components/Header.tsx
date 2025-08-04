@@ -19,7 +19,7 @@ const Header = () => {
                 src="logo.jpg"
                 alt="Limpieza Radiante"
                 className="w-14 h-14 rounded-full object-cover"
-                onError={(e) => {
+              onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
                 }}

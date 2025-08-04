@@ -136,7 +136,10 @@ const About = () => {
 
         {/* Carrusel de testimonios centrado y separado */}
         <div className="mt-24 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-10 text-gray-800">Customer Testimonials</h3>
+          <h3 className="text-3xl font-bold text-center mb-10 "> 
+            <span className="text-teal-600">Customer</span>{' '} 
+            <span className="text-yellow-500">Testimonials</span>
+          </h3>
           <div className="relative">
             <Slider {...sliderSettings}>
               {testimonials.map((testimonial, index) => (
