@@ -85,7 +85,16 @@ const Header = () => {
               <span className="text-sm">+1 555-555-5556</span>
             </div>
             <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md">
-              ¡Get in touch!
+              <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              onClick={e => {
+                if (location.pathname === "/" || location.pathname === "/#contact") {
+                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  const el = document.getElementById("contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              Get in Touch!
+            </Link>
             </ShineParticlesButton>
           </div>
 
