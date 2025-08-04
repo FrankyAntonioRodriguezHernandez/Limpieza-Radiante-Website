@@ -15,7 +15,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-13 h-12 flex items-center justify-center">
-              <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              <Link to="/#home" 
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#home") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí

@@ -16,7 +16,14 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12  flex items-center justify-center">
-                <img
+                <Link to="/#home"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#home") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("home");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}><img
                   src={Logo}
                   alt="Limpieza Radiante"
                   className="w-10 h-10 rounded-full object-cover"
@@ -24,7 +31,7 @@ const Footer = () => {
                     e.currentTarget.style.display = 'none';
                     (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
                   }}
-                />
+                /></Link>
                 <div className="w-8 h-8 bg-white rounded-full hidden items-center justify-center">
                   <span className="text-teal-500 font-bold text-sm">LR</span>
                 </div>
