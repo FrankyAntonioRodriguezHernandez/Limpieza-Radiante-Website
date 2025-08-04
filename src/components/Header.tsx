@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
 import { Link } from 'react-router-dom';
@@ -15,15 +15,24 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-13 h-12 flex items-center justify-center">
-              <img
-                src="logo.jpg"
-                alt="Limpieza Radiante"
-                className="w-14 h-14 rounded-full object-cover"
-              onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
-                }}
-              />
+              <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#home") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("home");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                <img
+                  src="logo.jpg"
+                  alt="Limpieza Radiante"
+                  className="w-14 h-14 rounded-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
+                  }}
+                />
+              </Link>
               <div className="w-8 h-8 bg-white rounded-full hidden items-center justify-center">
                 <span className="text-teal-500 font-bold text-sm">LR</span>
               </div>
@@ -85,16 +94,16 @@ const Header = () => {
               <span className="text-sm">+1 555-555-5556</span>
             </div>
             <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md">
-              <Link to="/#contact" 
-              onClick={e => {
-                if (location.pathname === "/" || location.pathname === "/#contact") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
-                  const el = document.getElementById("contact");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }
-              }}>
-              Get in Touch!
-            </Link>
+              <Link to="/#contact"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#contact") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Get in Touch!
+              </Link>
             </ShineParticlesButton>
           </div>
 
@@ -114,48 +123,48 @@ const Header = () => {
           <div className="md:hidden pb-4">
             <nav className="flex flex-col space-y-2">
               <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-              onClick={e => {
-                if (location.pathname === "/" || location.pathname === "/#home") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
-                  const el = document.getElementById("home");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }
-              }}>
-              Home
-            </Link>
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#home") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("home");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Home
+              </Link>
 
-            <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-              onClick={e => {
-                if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
-                  const el = document.getElementById("AllServices");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }
-              }}>
-              Services
-            </Link>
+              <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("AllServices");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Services
+              </Link>
 
-            <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-              onClick={e => {
-                if (location.pathname === "/" || location.pathname === "/#about") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
-                  const el = document.getElementById("about");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }
-              }}>
-              About us
-            </Link>
+              <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#about") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("about");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                About us
+              </Link>
 
-            <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-              onClick={e => {
-                if (location.pathname === "/" || location.pathname === "/#contact") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
-                  const el = document.getElementById("contact");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }
-              }}>
-              Contact us
-            </Link>
+              <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#contact") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Contact us
+              </Link>
             </nav>
           </div>
         )}
