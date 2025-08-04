@@ -120,7 +120,7 @@ const Footer = () => {
                 onClick={e => {
                     const el = document.getElementById("cleaning4");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}>Privacy Policy</Link></li>
+                }}>Restaurant cleaning</Link></li>
             </ul>
           </div>
 
@@ -139,6 +139,11 @@ const Footer = () => {
                 Get in Touch!
               </Link>
             </ShineParticlesButton>
+            <Link to="/services#cleaning4" className="text-gray-400 hover:text-white transition-colors duration-300 "
+                onClick={e => {
+                    const el = document.getElementById("cleaning4");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}>Privacy Policy</Link>
           </div>
         </div>
 
