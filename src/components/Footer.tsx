@@ -111,8 +111,17 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Get in Touch</h3>
-            <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
-              Get in touch
+            <ShineParticlesButton className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md">
+              <Link to="/#contact" 
+                onClick={e => {
+                  if (location.pathname === "/" || location.pathname === "/#contact") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
+                Get in Touch!
+              </Link>
             </ShineParticlesButton>
           </div>
         </div>
