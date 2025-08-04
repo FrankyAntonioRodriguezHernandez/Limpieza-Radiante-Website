@@ -113,10 +113,49 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden pb-4">
             <nav className="flex flex-col space-y-2">
-              <a href="#home" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 py-2">Home</a>
-              <a href="#services" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 py-2">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 py-2">About us</a>
-              <a href="#contact" className="text-gray-700 hover:text-teal-600 transition-colors duration-300 py-2">Contact us</a>
+              <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              onClick={e => {
+                if (location.pathname === "/" || location.pathname === "/#home") {
+                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  const el = document.getElementById("home");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              Home
+            </Link>
+
+            <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              onClick={e => {
+                if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
+                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  const el = document.getElementById("AllServices");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              Services
+            </Link>
+
+            <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              onClick={e => {
+                if (location.pathname === "/" || location.pathname === "/#about") {
+                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  const el = document.getElementById("about");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              About us
+            </Link>
+
+            <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
+              onClick={e => {
+                if (location.pathname === "/" || location.pathname === "/#contact") {
+                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  const el = document.getElementById("contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              Contact us
+            </Link>
             </nav>
           </div>
         )}

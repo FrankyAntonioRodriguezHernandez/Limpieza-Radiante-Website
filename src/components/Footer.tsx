@@ -51,7 +51,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Quick Links</h3>
             <ul className="space-y-2">
-              <Link to="/#home" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+              <Link to="/#home" className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#home") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí
@@ -62,7 +62,7 @@ const Footer = () => {
                 Home
               </Link>
 
-              <li><Link to="/services#AllServices" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+              <li><Link to="/services#AllServices" className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí
@@ -73,7 +73,7 @@ const Footer = () => {
                 Services
               </Link></li>
 
-              <li><Link to="/#about" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+              <li><Link to="/#about" className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#about") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí
@@ -84,7 +84,7 @@ const Footer = () => {
                 About us
               </Link></li>
 
-              <li><Link to="/#contact" className="text-gray-400 hover:text-teal-600 transition-colors duration-300 font-medium"
+              <li><Link to="/#contact" className="text-gray-400 hover:text-white transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#contact") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí
@@ -101,10 +101,38 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-yellow-400">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services#cleaning1" className="text-gray-400 hover:text-white transition-colors duration-300">Residential Cleaning</Link></li>
-              <li><Link to="/services#cleaning2" className="text-gray-400 hover:text-white transition-colors duration-300">Commercial Cleaning</Link></li>
-              <li><Link to="/services#cleaning3" className="text-gray-400 hover:text-white transition-colors duration-300">Deep Cleaning</Link></li>
-              <li><Link to="/services#cleaning4" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</Link></li>
+              <li><Link to="/services#cleaning1" className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={e => {
+                  if (location.pathname === "/services" || "/services#cleaning1" ) {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("cleaning1");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>Residential Cleaning</Link></li>
+              <li><Link to="/services#cleaning2" className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={e => {
+                  if (location.pathname === "/services" || "/services#cleaning2") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("cleaning2");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>Commercial Cleaning</Link></li>
+              <li><Link to="/services#cleaning3" className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={e => {
+                  if (location.pathname === "/services" || "/services#cleaning3") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("cleaning3");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>Deep Cleaning</Link></li>
+              <li><Link to="/services#cleaning4" className="text-gray-400 hover:text-white transition-colors duration-300"
+                onClick={e => {
+                  if (location.pathname === "/services" || "/services#cleaning4") {
+                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    const el = document.getElementById("cleaning4");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>Privacy Policy</Link></li>
             </ul>
           </div>
 
