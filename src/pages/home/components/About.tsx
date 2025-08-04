@@ -34,7 +34,7 @@ const testimonials = [
 type StarRatingProps = { rating: number };
 const StarRating = ({ rating }: StarRatingProps) => (
   <div className="flex justify-center">
-    {[1,2,3,4,5].map(i =>
+    {[1, 2, 3, 4, 5].map(i =>
       i <= rating
         ? <FaStar key={i} className="text-yellow-400" />
         : <FaRegStar key={i} className="text-yellow-400" />
@@ -91,7 +91,7 @@ const About = () => {
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-teal-100 rounded-full opacity-20 animate-float"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -119,7 +119,7 @@ const About = () => {
               <img
                 src="https://images.pexels.com/photos/4239040/pexels-photo-4239040.jpeg?auto=compress&cs=tinysrgb&w=800&format=webp"
                 alt="Clean and organized home"
-                className="w-full h-96 object-cover rounded-3xl"
+                className="w-full h-52 md:h-72 object-cover rounded-3xl"
                 loading="lazy"
               />
 
@@ -132,25 +132,25 @@ const About = () => {
         </div>
 
         {/* Carrusel de testimonios centrado y separado */}
-        <div className="mt-24 max-w-4xl mx-auto">
+        <div className="mt-10 md:mt-24 max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-10 ">
             <span className="text-teal-600">Customer</span>{' '}
             <span className="text-yellow-500">Testimonials</span>
           </h3>
           <div className="relative">
             <Slider {...sliderSettings}>
-  {testimonials.map((testimonial, index) => (
-    <div key={index} className="flex items-stretch px-2 md:px-4">
-      <div className="bg-white p-6 md:p-6 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl text-center w-full h-72 mx-2 flex flex-col justify-between border border-gray-100">
-        <h3 className="text-xl font-semibold text-gray-800">{testimonial.name}</h3>
-        <p className="mt-4 text-gray-800 italic font-serif flex-1 flex items-center justify-center">"{testimonial.testimonial}"</p>
-        <div className="mt-4">
-          <StarRating rating={testimonial.rating} />
-        </div>
-      </div>
-    </div>
-  ))}
-</Slider>
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="flex items-stretch px-2 md:px-4">
+                  <div className="bg-white p-6 md:p-6 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl text-center w-full h-72 mx-2 flex flex-col justify-between border border-gray-100">
+                    <h3 className="text-xl font-semibold text-gray-800">{testimonial.name}</h3>
+                    <p className="mt-4 text-gray-800 italic font-serif flex-1 flex items-center justify-center">"{testimonial.testimonial}"</p>
+                    <div className="mt-4">
+                      <StarRating rating={testimonial.rating} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
 
           </div>
         </div>
