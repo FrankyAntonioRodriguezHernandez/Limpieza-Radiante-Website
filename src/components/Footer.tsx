@@ -3,6 +3,7 @@ import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
 import { Link } from 'react-router-dom';
 import { useScrollToHash } from './useScrollToHash';
+import Logo from '../../public/Logo.jpg'
 
 const Footer = () => {
   useScrollToHash();
@@ -14,11 +15,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12  flex items-center justify-center">
                 <img
-                  src="/public/logo.jpeg"
+                  src={Logo}
                   alt="Limpieza Radiante"
-                  className="w-8 h-8 rounded-full object-cover"
+                  className="w-10 h-10 rounded-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';

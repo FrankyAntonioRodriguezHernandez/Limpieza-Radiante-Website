@@ -16,9 +16,9 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-13 h-12 flex items-center justify-center">
               <img
-                src="/logo.png"
+                src="logo.jpg"
                 alt="Limpieza Radiante"
-                className="w-14 h-14 object-cover"
+                className="w-14 h-14 rounded-full object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
