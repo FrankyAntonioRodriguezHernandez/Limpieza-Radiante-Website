@@ -159,14 +159,18 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 bg" ref={menuRef}>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-2 right-4 text-gray-700 hover:text-teal-600 transition-colors duration-300 z-20"
-              aria-label="Close menu"
-            >
-              <X className="h-7 w-7" />
-            </button>
+  <div
+    className="md:hidden pb-4 relative bg-white rounded-b-xl shadow-lg"
+    ref={menuRef}
+  >
+    {/* Botón cerrar */}
+    <button
+      onClick={() => setIsMenuOpen(false)}
+      className="absolute top-2 right-4 text-gray-700 hover:text-teal-600 transition-colors duration-300 z-20"
+      aria-label="Close menu"
+    >
+      <X className="h-7 w-7" />
+    </button>
             <nav className="flex flex-col space-y-2">
               <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
