@@ -11,35 +11,35 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-  if (!isMenuOpen) return;
+    if (!isMenuOpen) return;
 
-  const timeoutId = setTimeout(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-    window.addEventListener("scroll", handleScroll);
-  }, 0);
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+      window.addEventListener("scroll", handleScroll);
+    }, 0);
 
-  function handleClickOutside(event: MouseEvent | TouchEvent) {
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(event.target as Node)
-    ) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    function handleScroll() {
       setIsMenuOpen(false);
     }
-  }
 
-  function handleScroll() {
-    setIsMenuOpen(false);
-  }
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuOpen]);
 
-  return () => {
-    clearTimeout(timeoutId);
-    document.removeEventListener("mousedown", handleClickOutside);
-    document.removeEventListener("touchstart", handleClickOutside);
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, [isMenuOpen]);
-  
   return (
     <header className="bg-transparent shadow-sm sticky top-0 z-50 transition-colors duration-300 hover:bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +70,7 @@ const Header = () => {
               </div>
             </div>
             <span className={"text-xl font-bold text-gray-950 transition-opacity duration-300 " +
-              (isMenuOpen? "opacity-100": "opacity-0") + " md:opacity-100"         
+              (isMenuOpen ? "opacity-100" : "opacity-0") + " md:opacity-100"
             }>
               Limpieza Radiante
             </span>
@@ -145,18 +145,28 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-teal-600 transition-colors duration-300"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {!isMenuOpen && (
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="text-gray-700 hover:text-teal-600 transition-colors duration-300"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            )}
           </div>
+
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4" ref={menuRef}>
+          <div className="md:hidden pb-4 bg" ref={menuRef}>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-2 right-4 text-gray-700 hover:text-teal-600 transition-colors duration-300 z-20"
+              aria-label="Close menu"
+            >
+              <X className="h-7 w-7" />
+            </button>
             <nav className="flex flex-col space-y-2">
               <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
