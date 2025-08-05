@@ -10,38 +10,23 @@ const Header = () => {
   useScrollToHash();
   const menuRef = useRef<HTMLDivElement>(null);
 
+  function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < breakpoint);
+
   useEffect(() => {
-    if (!isMenuOpen) return;
+    const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
 
-    const timeoutId = setTimeout(() => {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
-      window.addEventListener("scroll", handleScroll);
-    }, 0);
-
-    function handleClickOutside(event: MouseEvent | TouchEvent) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    }
-
-    function handleScroll() {
-      setIsMenuOpen(false);
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMenuOpen]);
+const isMobile = useIsMobile();
 
   return (
-    <header className="bg-transparent shadow-sm sticky top-0 z-50 transition-colors duration-300 hover:bg-white ">
+    <header className={"shadow-sm sticky top-0 z-50 transition-colors duration-300 " +
+      ((isMenuOpen && isMobile) ? "bg-white" : "bg-transparent hover:bg-white")
+    }>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -160,7 +145,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
   <div
-    className="md:hidden pb-4 relative bg-white rounded-b-xl shadow-lg"
+    className="md:hidden pb-4 relative "
     ref={menuRef}
   >
     {/* Botón cerrar */}
