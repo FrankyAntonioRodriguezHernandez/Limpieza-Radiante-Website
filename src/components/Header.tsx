@@ -5,14 +5,8 @@ import { Link } from 'react-router-dom';
 import { useScrollToHash } from './useScrollToHash';
 import Logo from '../images/logo.jpg';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  useScrollToHash();
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  function useIsMobile(breakpoint = 768) {
+function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < breakpoint);
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < breakpoint);
     window.addEventListener('resize', handleResize);
@@ -21,21 +15,71 @@ const Header = () => {
   return isMobile;
 }
 
-const isMobile = useIsMobile();
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useScrollToHash();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLDivElement>(null); // ref para botón
+  const isMobile = useIsMobile();
+  const listenersActive = useRef(false); // evita doble cierre
+
+  // Solo activa listeners después de abrir el menú, para evitar cierre inmediato
+  useEffect(() => {
+    if (!isMenuOpen) {
+      listenersActive.current = false;
+      return;
+    }
+
+    const activateListeners = () => {
+      listenersActive.current = true;
+    };
+    // Pequeño retraso: listeners activos DESPUÉS de abrir el menú
+    const timer = setTimeout(activateListeners, 50);
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (!listenersActive.current) return;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      if (!listenersActive.current) return;
+      setIsMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+      listenersActive.current = false;
+    };
+  }, [isMenuOpen]);
 
   return (
-    <header className={"shadow-sm sticky top-0 z-50 transition-colors duration-300 " +
+    <header className={
+      "shadow-sm sticky top-0 z-50 transition-colors duration-300 " +
       ((isMenuOpen && isMobile) ? "bg-white" : "bg-transparent hover:bg-white")
     }>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
+          {/* Logo + Nombre */}
           <div className="flex items-center space-x-3 group">
             <div className="w-13 h-12 flex items-center justify-center">
               <Link to="/#home"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#home") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("home");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
@@ -60,46 +104,43 @@ const isMobile = useIsMobile();
               Limpieza Radiante
             </span>
           </div>
-
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
+            {/* ...tu navegación de desktop igual... */}
             <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
               onClick={e => {
                 if (location.pathname === "/" || location.pathname === "/#home") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  e.preventDefault();
                   const el = document.getElementById("home");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}>
               Home
             </Link>
-
             <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
               onClick={e => {
                 if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  e.preventDefault();
                   const el = document.getElementById("AllServices");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}>
               Services
             </Link>
-
             <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
               onClick={e => {
                 if (location.pathname === "/" || location.pathname === "/#about") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  e.preventDefault();
                   const el = document.getElementById("about");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
               }}>
               About us
             </Link>
-
             <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
               onClick={e => {
                 if (location.pathname === "/" || location.pathname === "/#contact") {
-                  e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                  e.preventDefault();
                   const el = document.getElementById("contact");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }
@@ -107,7 +148,6 @@ const isMobile = useIsMobile();
               Contact us
             </Link>
           </nav>
-
           {/* Contact Info & CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-stone-950">
@@ -118,7 +158,7 @@ const isMobile = useIsMobile();
               <Link to="/#contact"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#contact") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("contact");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
@@ -127,76 +167,78 @@ const isMobile = useIsMobile();
               </Link>
             </ShineParticlesButton>
           </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            {!isMenuOpen && (
+          {/* Botón menú móvil o cerrar, ambos en el mismo ref */}
+          <div className="md:hidden" ref={menuButtonRef}>
+            {!isMenuOpen ? (
               <button
-                onClick={() => setIsMenuOpen(true)}
+                onClick={e => {
+                  e.stopPropagation(); // evita propagación
+                  setIsMenuOpen(true);
+                }}
                 className="text-gray-700 hover:text-teal-600 transition-colors duration-300"
+                aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />
               </button>
+            ) : (
+              <button
+                onClick={e => {
+                  e.stopPropagation();
+                  setIsMenuOpen(false);
+                }}
+                className="text-gray-700 hover:text-teal-600 transition-colors duration-300"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
             )}
           </div>
-
         </div>
-
-        {/* Mobile Navigation */}
+        {/* Navegación móvil */}
         {isMenuOpen && (
-  <div
-    className="md:hidden pb-4 relative "
-    ref={menuRef}
-  >
-    {/* Botón cerrar */}
-    <button
-      onClick={() => setIsMenuOpen(false)}
-      className="absolute top-2 right-4 text-gray-700 hover:text-teal-600 transition-colors duration-300 z-20"
-      aria-label="Close menu"
-    >
-      <X className="h-7 w-7" />
-    </button>
+          <div className="md:hidden pb-4 relative bg-white rounded-b-xl shadow-lg" ref={menuRef}>
             <nav className="flex flex-col space-y-2">
               <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#home") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("home");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
+                  setIsMenuOpen(false);
                 }}>
                 Home
               </Link>
-
               <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("AllServices");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
+                  setIsMenuOpen(false);
                 }}>
                 Services
               </Link>
-
               <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#about") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("about");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
+                  setIsMenuOpen(false);
                 }}>
                 About us
               </Link>
-
               <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#contact") {
-                    e.preventDefault(); // Prevenir la navegación si ya estás ahí
+                    e.preventDefault();
                     const el = document.getElementById("contact");
                     if (el) el.scrollIntoView({ behavior: "smooth" });
                   }
+                  setIsMenuOpen(false);
                 }}>
                 Contact us
               </Link>
