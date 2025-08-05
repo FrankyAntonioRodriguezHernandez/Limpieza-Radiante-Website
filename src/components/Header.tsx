@@ -14,9 +14,9 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 group">
             <div className="w-13 h-12 flex items-center justify-center">
-              <Link to="/#home" 
+              <Link to="/#home"
                 onClick={e => {
                   if (location.pathname === "/" || location.pathname === "/#home") {
                     e.preventDefault(); // Prevenir la navegación si ya estás ahí
@@ -38,7 +38,15 @@ const Header = () => {
                 <span className="text-teal-500 font-bold text-sm">LR</span>
               </div>
             </div>
-            <span className="text-xl font-bold text-gray-950">Limpieza Radiante</span>
+            <span className={
+  "text-xl font-bold text-gray-950 transition-opacity duration-300 " +
+  (isMenuOpen 
+    ? "opacity-100"         // Visible en móvil cuando el menú está abierto
+    : "opacity-0") +        // Oculto en móvil cuando el menú está cerrado
+  " md:opacity-100"         // Siempre visible en desktop
+}>
+  Limpieza Radiante
+</span>
           </div>
 
           {/* Desktop Navigation */}
