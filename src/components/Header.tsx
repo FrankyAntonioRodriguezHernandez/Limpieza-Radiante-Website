@@ -11,31 +11,34 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isMenuOpen) return;
+  if (!isMenuOpen) return;
 
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    const handleScroll = () => {
-      setIsMenuOpen(false);
-    };
-
+  const timeoutId = setTimeout(() => {
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
+  }, 0);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMenuOpen]);
+  function handleClickOutside(event: MouseEvent | TouchEvent) {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target as Node)
+    ) {
+      setIsMenuOpen(false);
+    }
+  }
+
+  function handleScroll() {
+    setIsMenuOpen(false);
+  }
+
+  return () => {
+    clearTimeout(timeoutId);
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("touchstart", handleClickOutside);
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, [isMenuOpen]);
   
   return (
     <header className="bg-transparent shadow-sm sticky top-0 z-50 transition-colors duration-300 hover:bg-white ">
