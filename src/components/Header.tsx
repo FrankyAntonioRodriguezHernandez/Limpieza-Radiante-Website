@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,35 @@ import Logo from '../images/logo.jpg';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useScrollToHash();
+  const menuRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setIsMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuOpen]);
+  
   return (
     <header className="bg-transparent shadow-sm sticky top-0 z-50 transition-colors duration-300 hover:bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,15 +66,11 @@ const Header = () => {
                 <span className="text-teal-500 font-bold text-sm">LR</span>
               </div>
             </div>
-            <span className={
-  "text-xl font-bold text-gray-950 transition-opacity duration-300 " +
-  (isMenuOpen 
-    ? "opacity-100"         // Visible en móvil cuando el menú está abierto
-    : "opacity-0") +        // Oculto en móvil cuando el menú está cerrado
-  " md:opacity-100"         // Siempre visible en desktop
-}>
-  Limpieza Radiante
-</span>
+            <span className={"text-xl font-bold text-gray-950 transition-opacity duration-300 " +
+              (isMenuOpen? "opacity-100": "opacity-0") + " md:opacity-100"         
+            }>
+              Limpieza Radiante
+            </span>
           </div>
 
           {/* Desktop Navigation */}
