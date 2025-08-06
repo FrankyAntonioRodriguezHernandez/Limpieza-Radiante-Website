@@ -196,55 +196,76 @@ const Header = () => {
         </div>
         {/* Navegación móvil */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 relative bg-white rounded-b-xl shadow-lg" ref={menuRef}>
-            <nav className="flex flex-col space-y-2">
-              <Link to="/#home" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-                onClick={e => {
-                  if (location.pathname === "/" || location.pathname === "/#home") {
-                    e.preventDefault();
-                    const el = document.getElementById("home");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setIsMenuOpen(false);
-                }}>
-                Home
-              </Link>
-              <Link to="/services#AllServices" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-                onClick={e => {
-                  if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
-                    e.preventDefault();
-                    const el = document.getElementById("AllServices");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setIsMenuOpen(false);
-                }}>
-                Services
-              </Link>
-              <Link to="/#about" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-                onClick={e => {
-                  if (location.pathname === "/" || location.pathname === "/#about") {
-                    e.preventDefault();
-                    const el = document.getElementById("about");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setIsMenuOpen(false);
-                }}>
-                About us
-              </Link>
-              <Link to="/#contact" className="text-stone-950 hover:text-teal-600 transition-colors duration-300 font-medium"
-                onClick={e => {
-                  if (location.pathname === "/" || location.pathname === "/#contact") {
-                    e.preventDefault();
-                    const el = document.getElementById("contact");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                  setIsMenuOpen(false);
-                }}>
-                Contact us
-              </Link>
-            </nav>
-          </div>
-        )}
+  <div className="md:hidden pb-4 relative" ref={menuRef}>
+    <nav className="flex flex-col items-center space-y-4 py-5"> {/* más espacio entre links y centrado */}
+      <Link
+        to="/#home"
+        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100 
+          hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-teal-200
+          animate-float" // puedes agregar tu propia animación o quitar esta línea
+        style={{ backdropFilter: 'blur(4px)' }}
+        onClick={e => {
+          if (location.pathname === "/" || location.pathname === "/#home") {
+            e.preventDefault();
+            const el = document.getElementById("home");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+          setIsMenuOpen(false);
+        }}>
+        Home
+      </Link>
+      <Link
+        to="/services#AllServices"
+        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+          hover:bg-yellow-50 hover:scale-105 hover:shadow-xl transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-yellow-200"
+        style={{ backdropFilter: 'blur(4px)' }}
+        onClick={e => {
+          if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
+            e.preventDefault();
+            const el = document.getElementById("AllServices");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+          setIsMenuOpen(false);
+        }}>
+        Services
+      </Link>
+      <Link
+        to="/#about"
+        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+          hover:bg-teal-100 hover:scale-105 hover:shadow-xl transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-teal-200"
+        style={{ backdropFilter: 'blur(4px)' }}
+        onClick={e => {
+          if (location.pathname === "/" || location.pathname === "/#about") {
+            e.preventDefault();
+            const el = document.getElementById("about");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+          setIsMenuOpen(false);
+        }}>
+        About us
+      </Link>
+      <Link
+        to="/#contact"
+        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+          hover:bg-yellow-100 hover:scale-105 hover:shadow-xl transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-yellow-200"
+        style={{ backdropFilter: 'blur(4px)' }}
+        onClick={e => {
+          if (location.pathname === "/" || location.pathname === "/#contact") {
+            e.preventDefault();
+            const el = document.getElementById("contact");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }
+          setIsMenuOpen(false);
+        }}>
+        Contact us
+      </Link>
+    </nav>
+  </div>
+)}
       </div>
     </header>
   );
