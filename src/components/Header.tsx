@@ -98,25 +98,40 @@ const Header = () => {
                 <span className="text-teal-500 font-bold text-sm">LR</span>
               </div>
             </div>
-            <span className={"transition-opacity duration-300 " + (isMenuOpen ? "opacity-100" : "opacity-0") + " md:opacity-100"
-            }>
-              <Link to="/#home"
-                onClick={e => {
-                  if (location.pathname === "/" || location.pathname === "/#home") {
-                    e.preventDefault();
-                    const el = document.getElementById("home");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}>
-                <span className="inline-block px-4 py-2 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-base border border-teal-100
-    hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
-                  style={{ backdropFilter: 'blur(3px)' }}
-                >
+            <span className={"transition-opacity duration-300 " + (isMenuOpen ? "opacity-100" : "opacity-0") + " md:opacity-100"}>
+              {/* Solo móvil (burbuja) */}
+              <span className="inline-block md:hidden">
+                <Link to="/#home"
+                  onClick={e => {
+                    if (location.pathname === "/" || location.pathname === "/#home") {
+                      e.preventDefault();
+                      const el = document.getElementById("home");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}>
+                  <span className="inline-block px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
+                    style={{ backdropFilter: 'blur(3px)' }}
+                  >
+                    Limpieza Radiante
+                  </span>
+                </Link>
+              </span>
+              {/* Solo escritorio (texto normal) */}
+              <span className="hidden md:inline font-bold text-xl text-gray-950">
+                <Link to="/#home"
+                  onClick={e => {
+                    if (location.pathname === "/" || location.pathname === "/#home") {
+                      e.preventDefault();
+                      const el = document.getElementById("home");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}>
                   Limpieza Radiante
-                </span>
-              </Link>
-
+                </Link>
+              </span>
             </span>
+
 
           </div>
           {/* Desktop Navigation */}
