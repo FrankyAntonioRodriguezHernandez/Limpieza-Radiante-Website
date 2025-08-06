@@ -205,7 +205,7 @@ const Header = () => {
     <nav className="flex flex-col items-start space-y-4 pl-6 pt-7">
       <Link
         to="/#home"
-        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        className="px-4 py-2 text-lg bg-white/90 shadow-lg rounded-full font-semibold text-stone-950  border border-teal-100
         hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
         style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
@@ -220,7 +220,7 @@ const Header = () => {
       </Link>
       <Link
         to="/services#AllServices"
-        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        className="px-4 py-2 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
         hover:bg-yellow-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
         style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
@@ -235,7 +235,7 @@ const Header = () => {
       </Link>
       <Link
         to="/#about"
-        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        className="px-4 py-2 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
         hover:bg-teal-100 hover:scale-105 hover:shadow-xl transition-all duration-200"
         style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
@@ -250,7 +250,7 @@ const Header = () => {
       </Link>
       <Link
         to="/#contact"
-        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        className="px-4 py-2 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
         hover:bg-yellow-100 hover:scale-105 hover:shadow-xl transition-all duration-200"
         style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
