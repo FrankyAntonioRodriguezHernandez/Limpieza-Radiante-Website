@@ -66,11 +66,16 @@ const allServices = [
 const AllServices = () => {
     useScrollToHash();
 
-    return (<section id="AllServices" className="py-24 bg-gradient-to-b from-gray-50 via-teal-300 to-teal-600 relative overflow-hidden min-h-screen">
-        <div className="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8 gap-16">
+    return (
+        
+        
+
+    <section id="AllServices" className="py-24 bg-gradient-to-b from-gray-50 via-teal-300 to-teal-600 relative overflow-hidden min-h-screen">
+                <div className="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8 gap-16">
             <h1 className="text-4xl md:text-6xl font-bold text-center text-teal-700 mb-10">
                 Our Full Range of Services
             </h1>
+            
             {allServices.map((service, index) => (
                 <div
                     key={index} id={service.id}

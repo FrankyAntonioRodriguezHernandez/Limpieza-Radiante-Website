@@ -107,11 +107,6 @@ const About = () => {
                 </p>
               </div>
             </div>
-
-            <ShineParticlesButton className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
-              <span>Learn more</span>
-              <ArrowRight className="h-5 w-5" />
-            </ShineParticlesButton>
           </div>
 
           <div className="relative">
