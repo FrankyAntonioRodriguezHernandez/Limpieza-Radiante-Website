@@ -69,7 +69,7 @@ const Header = () => {
   return (
     <header className={
       "shadow-sm sticky top-0 z-50 transition-colors duration-300 " +
-      ((isMenuOpen && isMobile) ? "bg-white" : "bg-transparent hover:bg-white")
+      ((isMenuOpen && isMobile) ? "bg-transparent" : "bg-transparent hover:bg-white")
     }>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -196,15 +196,18 @@ const Header = () => {
         </div>
         {/* Navegación móvil */}
         {isMenuOpen && (
-  <div className="md:hidden pb-4 relative" ref={menuRef}>
-    <nav className="flex flex-col items-center space-y-4 py-5"> {/* más espacio entre links y centrado */}
+  <div
+    className="md:hidden pb-4 relative bg-transparent"
+    ref={menuRef}
+  >
+    
+    {/* Las burbujas van aquí */}
+    <nav className="flex flex-col items-start space-y-4 pl-6 pt-7">
       <Link
         to="/#home"
-        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100 
-          hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-teal-200
-          animate-float" // puedes agregar tu propia animación o quitar esta línea
-        style={{ backdropFilter: 'blur(4px)' }}
+        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        hover:bg-teal-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
+        style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
           if (location.pathname === "/" || location.pathname === "/#home") {
             e.preventDefault();
@@ -217,10 +220,9 @@ const Header = () => {
       </Link>
       <Link
         to="/services#AllServices"
-        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
-          hover:bg-yellow-50 hover:scale-105 hover:shadow-xl transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-yellow-200"
-        style={{ backdropFilter: 'blur(4px)' }}
+        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        hover:bg-yellow-50 hover:scale-105 hover:shadow-xl transition-all duration-200"
+        style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
           if (location.pathname === "/services" || location.pathname === "/services#AllServices") {
             e.preventDefault();
@@ -233,10 +235,9 @@ const Header = () => {
       </Link>
       <Link
         to="/#about"
-        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
-          hover:bg-teal-100 hover:scale-105 hover:shadow-xl transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-teal-200"
-        style={{ backdropFilter: 'blur(4px)' }}
+        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        hover:bg-teal-100 hover:scale-105 hover:shadow-xl transition-all duration-200"
+        style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
           if (location.pathname === "/" || location.pathname === "/#about") {
             e.preventDefault();
@@ -249,10 +250,9 @@ const Header = () => {
       </Link>
       <Link
         to="/#contact"
-        className="w-56 px-6 py-3 bg-white/80 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
-          hover:bg-yellow-100 hover:scale-105 hover:shadow-xl transition-all duration-200
-          focus:outline-none focus:ring-2 focus:ring-yellow-200"
-        style={{ backdropFilter: 'blur(4px)' }}
+        className="px-6 py-3 bg-white/90 shadow-lg rounded-full font-semibold text-stone-950 text-lg border border-teal-100
+        hover:bg-yellow-100 hover:scale-105 hover:shadow-xl transition-all duration-200"
+        style={{ backdropFilter: 'blur(3px)' }}
         onClick={e => {
           if (location.pathname === "/" || location.pathname === "/#contact") {
             e.preventDefault();
@@ -266,6 +266,7 @@ const Header = () => {
     </nav>
   </div>
 )}
+
       </div>
     </header>
   );
