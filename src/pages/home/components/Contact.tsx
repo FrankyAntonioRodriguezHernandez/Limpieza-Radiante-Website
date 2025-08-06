@@ -51,7 +51,7 @@ const Contact = () => {
               <img
                 src="https://images.pexels.com/photos/4239040/pexels-photo-4239040.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Clean and organized home"
-                className="w-full h-96 object-cover rounded-3xl"
+                className="w-full h-52 md:h-96 object-cover rounded-3xl"
               />
             </div>
           </div>
