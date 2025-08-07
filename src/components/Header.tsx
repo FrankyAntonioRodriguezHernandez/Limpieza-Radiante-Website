@@ -3,6 +3,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
 import { Link } from 'react-router-dom';
 import { useScrollToHash } from './useScrollToHash';
+import Logo from '../images/logo.jpg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Header = () => {
                   }
                 }}>
                 <img
-                  src="logo.jpg"
+                  src={Logo}
                   alt="Limpieza Radiante"
                   className="w-14 h-14 rounded-full object-cover"
                   onError={(e) => {

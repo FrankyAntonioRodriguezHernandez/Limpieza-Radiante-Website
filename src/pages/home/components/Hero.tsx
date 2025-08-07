@@ -33,9 +33,10 @@ const Hero = () => {
             <div className="relative max-w-2xl mx-auto ">
               <div className="organic-shape bg-white p-8 animate-gentle-float">
                 <img
-                  src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=800&format=webp"
                   alt="Clean home interior"
                   className="w-full h-64 object-cover rounded-3xl"
+                  loading="lazy"
                 />
               </div>
             </div>

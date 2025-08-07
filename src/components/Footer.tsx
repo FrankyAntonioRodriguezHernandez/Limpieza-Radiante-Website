@@ -1,9 +1,8 @@
-import React from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { ShineParticlesButton } from './ShineParticlesButton';
 import { Link } from 'react-router-dom';
 import { useScrollToHash } from './useScrollToHash';
-import Logo from '../../public/Logo.jpg'
+import Logo from '../images/logo.jpg'
 
 const Footer = () => {
   useScrollToHash();

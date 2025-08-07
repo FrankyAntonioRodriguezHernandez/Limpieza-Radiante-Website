@@ -34,16 +34,17 @@ const Services = () => {
       description:
         "Discover unmatched quality, eco-friendly and advanced house cleaning services. We use the latest and most effective cleaning techniques to ensure your home is spotless and fresh.",
       image:
-        "https://images.pexels.com/photos/4239037/pexels-photo-4239037.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4239037/pexels-photo-4239037.jpeg?auto=compress&cs=tinysrgb&w=600format=webp" ,
       buttonText: "Learn More",
       reverse: false,
+      
     },
     {
       title: "Comfort & Convenience",
       description:
         "We only use friendly products and equipment of the highest quality. Your satisfaction is our priority, and all our services come with a satisfaction guarantee.",
       image:
-        "https://images.pexels.com/photos/4239119/pexels-photo-4239119.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4239119/pexels-photo-4239119.jpeg?auto=compress&cs=tinysrgb&w=600&format=webp",
       buttonText: "Discover more",
       reverse: true,
     },
@@ -52,7 +53,7 @@ const Services = () => {
       description:
         "We offer a wide range of services of the highest quality. Your satisfaction is our priority, and all our services come with a satisfaction guarantee.",
       image:
-        "https://images.pexels.com/photos/4239090/pexels-photo-4239090.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4239090/pexels-photo-4239090.jpeg?auto=compress&cs=tinysrgb&w=600&format=webp",
       buttonText: "Learn More",
       reverse: false,
     },
@@ -61,7 +62,7 @@ const Services = () => {
       description:
         "Use this snippet to showcase various cleaning services that highlight our expertise and customer satisfaction. Duplicate the element to create a list that fits your needs.",
       image:
-        "https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg?auto=compress&cs=tinysrgb&w=600&format=webp",
       buttonText: "Continue reading",
       reverse: true,
     },
